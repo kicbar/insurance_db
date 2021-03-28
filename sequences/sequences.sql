@@ -12,3 +12,8 @@ create sequence SEQ_CONTACT
 start with 1 increment by 1
 minvalue 1 maxvalue 100000
 cycle cache 2 order;
+
+create sequence SEQ_ADDRESS
+start with 1 increment by 1
+minvalue 1 maxvalue 100000
+cycle cache 2 order;

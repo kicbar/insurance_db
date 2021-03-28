@@ -25,7 +25,6 @@ create table CLIENTS
 , FNAME varchar2(50) not null
 , LNAME varchar2(50) not null
 , PESEL varchar2(11) unique
-, ADDRESS varchar2(100)
 , VERSION number(2,0) default 1
 , UPDATE_DATE timestamp default sysdate
 , INSERT_DATE timestamp default sysdate
@@ -44,4 +43,33 @@ create table CONTACTS
 , INSERT_DATE timestamp default sysdate
 , STATUS integer default 1
 , constraint id_contact_client_fk foreign key (ID_CLIENT) references CLIENTS(ID_CLIENT)
+);
+
+CREATE TABLE ADDRESS_TYPES
+(
+  ID_ADDRESS_TYPE integer constraint id_address_type_pk primary key not null
+, ADDRESS_NAME VARCHAR2(20)  NOT NULL
+, VERSION number(2,0) default 1
+, UPDATE_DATE timestamp default sysdate
+, INSERT_DATE timestamp default sysdate
+, STATUS integer default 1
+);
+
+create table ADDRESSES
+(
+  ID_CONTACT integer default SEQ_ADDRESS.nextval constraint id_address_pk primary key not null
+, CITY varchar2(40) NOT NULL
+, POSTAL_CODE varchar2(6)
+, STREET varchar2(40) NOT NULL 
+, HOME_NUMBER varchar2(5)
+, APARTMENT_NUMBER varchar2(5)
+, COUNTRY varchar2(20) DEFAULT 'PL'
+, ID_CLIENT integer not null
+, ID_ADDRESS_TYPE integer default 1 not null
+, VERSION number(2,0) default 1
+, UPDATE_DATE timestamp default sysdate
+, INSERT_DATE timestamp default sysdate
+, STATUS integer default 1
+, constraint id_address_client_fk foreign key (ID_CLIENT) references CLIENTS(ID_CLIENT)
+, constraint id_address_type_fk foreign key (ID_ADDRESS_TYPE) references ADDRESS_TYPES(ID_ADDRESS_TYPE)
 );
