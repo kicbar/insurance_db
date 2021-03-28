@@ -1,0 +1,1 @@
+create synonym klienci FOR insurance_db.clients;
