@@ -9,6 +9,9 @@ insert into DCT_POLICY_TYPES (POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES ('Pol
 insert into DCT_POLICY_TYPES (POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES ('Polisa mieszkaniowa', 'HOUSE_P', 'Polisa ubezpieczeniowa majątkowa, ubezpieczenie mieszkania.');
 insert into DCT_POLICY_TYPES (POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES ('Polisa motoryzacyjna', 'MOTO_P', 'Polisa ubezpieczeniowa majątkowa, ubezpieczenie pojazdu.');
 
-insert into clients(fname, lname, pesel, address, contact) values('Maciej', 'Makowski', '14052743387', 'Warszawa ul. Marszalkowska 3B', 'email: mako@wp.pl, tel.: 611-222-033');
-insert into clients(fname, lname, pesel, address, contact) values('Julia', 'Wrońska', '52011369892', 'Biaystok ul. Rzemieślnicza 12', 'email: jullaw@gmail.pl, tel.: 512-232-962');
-insert into clients(fname, lname, pesel, address, contact) values('Szymon', 'Zbrowski', '57112163240', 'Poznań ul. Grzybowska 89/2', 'email: grzybix@o2.pl, tel.: 653-365-785');
+insert into clients(fname, lname, pesel, address) values('Maciej', 'Makowski', '14052743387', 'Warszawa ul. Marszalkowska 3B');
+insert into contacts(email, mobile_phone_1, mobile_phone_2, id_client) values('mako@wp.pl', '611-222-033', '', SEQ_CLIENT.currval);
+insert into clients(fname, lname, pesel, address) values('Julia', 'Wrońska', '52011369892', 'Biaystok ul. Rzemieślnicza 12');
+insert into contacts(email, mobile_phone_1, mobile_phone_2, id_client) values('jullaw@gmail.pl', '512-232-962', '874-965-552', SEQ_CLIENT.currval);
+insert into clients(fname, lname, pesel, address) values('Szymon', 'Zbrowski', '57112163240', 'Poznań ul. Grzybowska 89/2');
+insert into contacts(email, mobile_phone_1, id_client) values('grzybix@o2.pl', '653-365-785', SEQ_CLIENT.currval);

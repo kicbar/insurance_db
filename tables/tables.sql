@@ -26,9 +26,22 @@ create table CLIENTS
 , LNAME varchar2(50) not null
 , PESEL varchar2(11) unique
 , ADDRESS varchar2(100)
-, CONTACT varchar2(100)
 , VERSION number(2,0) default 1
 , UPDATE_DATE timestamp default sysdate
 , INSERT_DATE timestamp default sysdate
 , STATUS integer default 1
+);
+
+create table CONTACTS
+(
+  ID_CONTACT integer default SEQ_CONTACT.nextval constraint id_contact_pk primary key not null
+, EMAIL varchar2(40) check(regexp_like (EMAIL,'^[A-Za-z]+[A-Za-z0-9.]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$'))
+, MOBILE_PHONE_1 varchar2(13) 
+, MOBILE_PHONE_2 varchar2(13)
+, ID_CLIENT integer not null
+, VERSION number(2,0) default 1
+, UPDATE_DATE timestamp default sysdate
+, INSERT_DATE timestamp default sysdate
+, STATUS integer default 1
+, constraint id_contact_client_fk foreign key (ID_CLIENT) references CLIENTS(ID_CLIENT)
 );
