@@ -17,7 +17,7 @@ insert into address_types (id_address_type, address_name) VALUES (4, 'Inne');
 insert into clients(fname, lname, pesel) values('Maciej', 'Makowski', '14052743387');
 insert into contacts(email, mobile_phone_1, mobile_phone_2, id_client) values('mako@wp.pl', '611-222-033', '', SEQ_CLIENT.currval);
 insert into addresses(city, postal_code, street, home_number, id_client, id_address_type) values('Warszawa', '01-485', 'Marszałkowska', '3B', SEQ_CLIENT.currval, 1);
-insert into addresses(city, postal_code, street, home_number, apartment_number, id_client, id_address_type) values('Warszawa', '01-485', 'Jana Pawła', '112', '8', SEQ_CLIENT.currval, 1);
+insert into addresses(city, postal_code, street, home_number, apartment_number, id_client, id_address_type) values('Warszawa', '01-485', 'Jana Pawła', '112', '8', SEQ_CLIENT.currval, 2);
 insert into clients(fname, lname, pesel) values('Julia', 'Wrońska', '52011369892');
 insert into contacts(email, mobile_phone_1, mobile_phone_2, id_client) values('jullaw@gmail.pl', '512-232-962', '874-965-552', SEQ_CLIENT.currval);
 insert into addresses(city, postal_code, street, home_number, apartment_number, id_client, id_address_type) values('Biaystok', '15-100', 'Rzemieślnicza', '12', '3', SEQ_CLIENT.currval, 1);
@@ -25,3 +25,7 @@ insert into clients(fname, lname, pesel) values('Szymon', 'Zbrowski', '571121632
 insert into contacts(email, mobile_phone_1, id_client) values('grzybix@o2.pl', '653-365-785', SEQ_CLIENT.currval);
 insert into addresses(city, postal_code, street, home_number, id_client, id_address_type) values('Poznań', '60-005', 'Grzybowska', '89', SEQ_CLIENT.currval, 1);
 
+update addresses set street = 'Wiśniowa', home_number = '88A', apartment_number = '23' where id_address = 1 and status = 1;
+delete from addresses where id_address = 2 and status = 1;
+update contacts set mobile_phone_2 = '782-219-090' where id_contact = 1 and status = 1;
+delete from contacts where id_contact = 2 and status = 1;

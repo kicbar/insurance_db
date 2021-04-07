@@ -57,7 +57,7 @@ CREATE TABLE ADDRESS_TYPES
 
 create table ADDRESSES
 (
-  ID_CONTACT integer default SEQ_ADDRESS.nextval constraint id_address_pk primary key not null
+  ID_ADDRESS integer default SEQ_ADDRESS.nextval constraint id_address_pk primary key not null
 , CITY varchar2(40) NOT NULL
 , POSTAL_CODE varchar2(6)
 , STREET varchar2(40) NOT NULL 
