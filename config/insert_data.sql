@@ -3,22 +3,23 @@ insert into DCT_STATUSES(id_status, status_name) values(1, 'ACTIVE');
 insert into DCT_STATUSES(id_status, status_name) values(8, 'DELETED');
 insert into DCT_STATUSES(id_status, status_name) values(9, 'INVALID');
 
-insert into DCT_POLICY_TYPES (POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES ('Polisa na życie', 'LIFE_P', 'Polisa ubezpieczeniowa życiowa, indywidualna na życie.');
-insert into DCT_POLICY_TYPES (POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES ('Polisa grupowa', 'LIFE_G', 'Polisa ubezpieczeniowa życiowa, grupowa na życie.');
-insert into DCT_POLICY_TYPES (POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES ('Polisa turystyczna', 'TOUR_P', 'Polisa ubezpieczeniowa życiowa, ubezpieczenie podczas podróży.');
-insert into DCT_POLICY_TYPES (POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES ('Polisa mieszkaniowa', 'HOUSE_P', 'Polisa ubezpieczeniowa majątkowa, ubezpieczenie mieszkania.');
-insert into DCT_POLICY_TYPES (POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES ('Polisa motoryzacyjna', 'MOTO_P', 'Polisa ubezpieczeniowa majątkowa, ubezpieczenie pojazdu.');
+insert into DCT_POLICY_TYPES (ID_POLICY_TYPE, POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES (1, 'Polisa na życie', 'LIFE_P', 'Polisa ubezpieczeniowa życiowa, indywidualna na życie.');
+insert into DCT_POLICY_TYPES (ID_POLICY_TYPE, POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES (2, 'Polisa grupowa', 'LIFE_G', 'Polisa ubezpieczeniowa życiowa, grupowa na życie.');
+insert into DCT_POLICY_TYPES (ID_POLICY_TYPE, POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES (3, 'Polisa turystyczna', 'TOUR_P', 'Polisa ubezpieczeniowa życiowa, ubezpieczenie podczas podróży.');
+insert into DCT_POLICY_TYPES (ID_POLICY_TYPE, POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES (4, 'Polisa rodzinna', 'FAMI_P', 'Polisa ubezpieczeniowa życiowa, ubezpieczenie dla członków rodziny.');
+insert into DCT_POLICY_TYPES (ID_POLICY_TYPE, POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES (5, 'Polisa komunikacyjna', 'MOTO_P', 'Polisa ubezpieczeniowa życiowa, ubzpieczenie komunikacyjne.');
+insert into DCT_POLICY_TYPES (ID_POLICY_TYPE, POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES (6, 'Polisa studencka', 'STUD_P', 'Polisa ubezpieczeniowa życiowa, dla uczniów i studentów.');
 
 insert into address_types (id_address_type, address_name) VALUES (1, 'Zamieszkania' ); 
 insert into address_types (id_address_type, address_name) VALUES (2, 'Zameldowania'); 
 insert into address_types (id_address_type, address_name) VALUES (3, 'Korespodencyjny'); 
 insert into address_types (id_address_type, address_name) VALUES (4, 'Inne'); 
 
-insert into dct_riders (id_rider, rider_name, rider_description) values (1, 'Z-1', 'Uszkodzenie ciala wyniku wypadku komunikacyjnego.');
+insert into dct_riders (id_rider, rider_name, rider_description) values (1, 'Z-1', 'Uszkodzenie ciała w wyniku wypadku komunikacyjnego.');
 insert into dct_riders (id_rider, rider_name, rider_description) values (2, 'S-1', 'Śmierć ubezpieczonego.');
 insert into dct_riders (id_rider, rider_name, rider_description) values (3, 'S-2', 'Śmierć osoby bliskiej ubezpieczonego.');
-insert into dct_riders (id_rider, rider_name, rider_description) values (4, 'C-1', 'Zachorowanie na chorobę przewlekla.');
-insert into dct_riders (id_rider, rider_name, rider_description) values (5, 'C-2', 'Zachorowanie na chorobę nieuleczalna');
+insert into dct_riders (id_rider, rider_name, rider_description) values (4, 'C-1', 'Zachorowanie na chorobę przewlekłą.');
+insert into dct_riders (id_rider, rider_name, rider_description) values (5, 'C-2', 'Zachorowanie na chorobę nieuleczalną.');
 insert into dct_riders (id_rider, rider_name, rider_description) values (6, 'A-1', 'Pobyt ubezpieczonego w szpitalu.');
 
 insert into clients(fname, lname, pesel) values('Maciej', 'Makowski', '14052743387');

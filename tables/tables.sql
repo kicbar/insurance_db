@@ -9,7 +9,7 @@ create table DCT_STATUSES
 
 create table DCT_POLICY_TYPES
 (
-  ID_POLICY_TYPE integer default seq_dct_policy_type.nextval constraint id_dct_policy_type_pk primary key not null
+  ID_POLICY_TYPE integer constraint id_dct_policy_type_pk primary key not null
 , POLICY_TYPE varchar2(30) not null
 , SHORT_NAME varchar2(8) not null
 , DESCRIPTION varchar2(100)
@@ -89,17 +89,18 @@ create table POLICIES
 (
   ID_POLICY integer default SEQ_POLICY.nextval constraint id_policy_pk primary key not null
 , POLICY_NO varchar2(20) NOT NULL
-, ID_CLIENT integer NOT NULL
-, ID_POLICY_TYPE integer
+, ID_INSURER integer NOT NULL
+, ID_INSURED integer NOT NULL
 , POLICY_VALUE NUMBER(7,2)
 , PREMIUM_VALUE NUMBER(7,2)
 , PREMIUM_FREQUENCY varchar2(20)
+, TOTAL_PREMIUM NUMBER(7,2)
 , START_DATE date
 , SIGN_DATE date
 , VERSION number(2,0) default 1
 , UPDATE_DATE timestamp default sysdate
 , INSERT_DATE timestamp default sysdate
 , STATUS integer default 1
-, constraint id_policy_client_fk foreign key (ID_CLIENT) references CLIENTS(ID_CLIENT)
-, constraint id_policy_type_fk foreign key (ID_POLICY_TYPE) references DCT_POLICY_TYPES(ID_POLICY_TYPE)
+, constraint id_policy_insurer_fk foreign key (ID_INSURER) references CLIENTS(ID_CLIENT)
+, constraint id_policy_insured_fk foreign key (ID_INSURED) references CLIENTS(ID_CLIENT)
 );
