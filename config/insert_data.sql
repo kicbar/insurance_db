@@ -37,3 +37,7 @@ update addresses set street = 'Wiśniowa', home_number = '88A', apartment_number
 delete from addresses where id_address = 2 and status = 1;
 update contacts set mobile_phone_2 = '782-219-090' where id_contact = 1 and status = 1;
 delete from contacts where id_contact = 2 and status = 1;
+
+insert into policies(policy_no, id_insurer, id_insured, policy_value, premium_value, premium_frequency, sign_date, start_date) values ('P/07/04LIFE', 1, 1, 20000, 1500, 12, sysdate, sysdate + 1);
+
+insert into claims (claim_no, id_policy, id_rider, event_date, claim_status) values('R/01/07/04', 1, 1, sysdate, 'Paid');

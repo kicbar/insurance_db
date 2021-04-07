@@ -88,19 +88,36 @@ create table ADDRESSES
 create table POLICIES
 (
   ID_POLICY integer default SEQ_POLICY.nextval constraint id_policy_pk primary key not null
-, POLICY_NO varchar2(20) NOT NULL
-, ID_INSURER integer NOT NULL
-, ID_INSURED integer NOT NULL
-, POLICY_VALUE NUMBER(7,2)
-, PREMIUM_VALUE NUMBER(7,2)
-, PREMIUM_FREQUENCY varchar2(20)
-, TOTAL_PREMIUM NUMBER(7,2)
-, START_DATE date
+, POLICY_NO varchar2(20) not null
+, ID_INSURER integer not null
+, ID_INSURED integer not null
+, POLICY_VALUE number(9,2)
+, PREMIUM_VALUE number(9,2)
+, PREMIUM_FREQUENCY integer
+, TOTAL_PREMIUM number(10,2)
 , SIGN_DATE date
+, START_DATE date
 , VERSION number(2,0) default 1
 , UPDATE_DATE timestamp default sysdate
 , INSERT_DATE timestamp default sysdate
 , STATUS integer default 1
 , constraint id_policy_insurer_fk foreign key (ID_INSURER) references CLIENTS(ID_CLIENT)
 , constraint id_policy_insured_fk foreign key (ID_INSURED) references CLIENTS(ID_CLIENT)
+);
+
+
+create table CLAIMS
+(
+  ID_CLAIM integer default SEQ_CLAIM.nextval constraint id_claim_pk primary key not null
+, CLAIM_NO varchar2(20) not null
+, ID_POLICY integer not null
+, ID_RIDER integer not null
+, EVENT_DATE date
+, CLAIM_STATUS varchar2(10) default 'Register' check (CLAIM_STATUS IN ('Register', 'To pay', 'Paid', 'Refused')) 
+, VERSION number(2,0) default 1
+, UPDATE_DATE timestamp default sysdate
+, INSERT_DATE timestamp default sysdate
+, STATUS integer default 1
+, constraint id_claim_policy_fk foreign key (ID_POLICY) references POLICIES(ID_POLICY)
+, constraint id_claim_rider_fk foreign key (ID_RIDER) references DCT_RIDERS(ID_RIDER)
 );

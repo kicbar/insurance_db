@@ -6,6 +6,7 @@ drop table CONTACTS cascade constraints;
 drop table ADDRESS_TYPES cascade constraints;
 drop table ADDRESSES cascade constraints;
 drop table POLICIES cascade constraints;
+drop table CLAIMS cascade constraints;
 drop table LOGS cascade constraints;
 
 drop sequence SEQ_LOG;

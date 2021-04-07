@@ -71,3 +71,15 @@ begin
     :new.update_date := SYSDATE;
 end;
 /
+
+create or replace trigger version_claim before
+    update on CLAIMS
+    for each row
+begin
+    if updating('INSERT_DATE') then 
+        raise_application_error(-20100, 'Kolumny INSERT_DATE nie można aktualizować! ERROR: '||SQLERRM||' '||SQLCODE);
+    end if;    
+    :new.version := nvl(:old.version,1) + 1;
+    :new.update_date := SYSDATE;
+end;
+/
