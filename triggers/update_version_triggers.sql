@@ -60,7 +60,7 @@ begin
 end;
 /
 
-create or replace trigger policy_address before
+create or replace trigger version_policy before
     update on POLICIES
     for each row
 begin

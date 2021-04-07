@@ -19,6 +19,17 @@ create table DCT_POLICY_TYPES
 , STATUS integer default 1
 );
 
+create table DCT_RIDERS
+(
+  ID_RIDER integer constraint id_rider_pk primary key not null
+, RIDER_NAME varchar2(5) not null
+, RIDER_DESCRIPTION varchar2(200) not null
+, VERSION number(2,0) default 1
+, UPDATE_DATE timestamp default sysdate
+, INSERT_DATE timestamp default sysdate
+, STATUS integer default 1
+);
+
 create table CLIENTS
 (
   ID_CLIENT integer default SEQ_CLIENT.nextval constraint id_client_pk primary key not null
@@ -83,6 +94,8 @@ create table POLICIES
 , POLICY_VALUE NUMBER(7,2)
 , PREMIUM_VALUE NUMBER(7,2)
 , PREMIUM_FREQUENCY varchar2(20)
+, START_DATE date
+, SIGN_DATE date
 , VERSION number(2,0) default 1
 , UPDATE_DATE timestamp default sysdate
 , INSERT_DATE timestamp default sysdate
