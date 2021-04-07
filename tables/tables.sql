@@ -73,3 +73,20 @@ create table ADDRESSES
 , constraint id_address_client_fk foreign key (ID_CLIENT) references CLIENTS(ID_CLIENT)
 , constraint id_address_type_fk foreign key (ID_ADDRESS_TYPE) references ADDRESS_TYPES(ID_ADDRESS_TYPE)
 );
+
+create table POLICIES
+(
+  ID_POLICY integer default SEQ_POLICY.nextval constraint id_policy_pk primary key not null
+, POLICY_NO varchar2(20) NOT NULL
+, ID_CLIENT integer NOT NULL
+, ID_POLICY_TYPE integer
+, POLICY_VALUE NUMBER(7,2)
+, PREMIUM_VALUE NUMBER(7,2)
+, PREMIUM_FREQUENCY varchar2(20)
+, VERSION number(2,0) default 1
+, UPDATE_DATE timestamp default sysdate
+, INSERT_DATE timestamp default sysdate
+, STATUS integer default 1
+, constraint id_policy_client_fk foreign key (ID_CLIENT) references CLIENTS(ID_CLIENT)
+, constraint id_policy_type_fk foreign key (ID_POLICY_TYPE) references DCT_POLICY_TYPES(ID_POLICY_TYPE)
+);
