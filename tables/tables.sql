@@ -102,6 +102,7 @@ create table POLICIES
 , POLICY_NO varchar2(20) not null
 , ID_INSURER integer not null
 , ID_INSURED integer not null
+, ID_POLICY_TYPE integer not null
 , POLICY_VALUE number(9,2)
 , PREMIUM_VALUE number(9,2)
 , PREMIUM_FREQUENCY integer
@@ -115,6 +116,7 @@ create table POLICIES
 , STATUS integer default 1
 , constraint id_policy_insurer_fk foreign key (ID_INSURER) references CLIENTS(ID_CLIENT)
 , constraint id_policy_insured_fk foreign key (ID_INSURED) references CLIENTS(ID_CLIENT)
+, constraint id_policy_type_fk foreign key (ID_POLICY_TYPE) references DCT_POLICY_TYPES(ID_POLICY_TYPE)
 );
 
 
