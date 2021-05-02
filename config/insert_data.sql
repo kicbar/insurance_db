@@ -10,10 +10,10 @@ insert into DCT_POLICY_TYPES (ID_POLICY_TYPE, POLICY_TYPE, SHORT_NAME, DESCRIPTI
 insert into DCT_POLICY_TYPES (ID_POLICY_TYPE, POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES (5, 'Polisa komunikacyjna', 'MOTO_P', 'Polisa ubezpieczeniowa życiowa, ubzpieczenie komunikacyjne.');
 insert into DCT_POLICY_TYPES (ID_POLICY_TYPE, POLICY_TYPE, SHORT_NAME, DESCRIPTION) VALUES (6, 'Polisa studencka', 'STUD_P', 'Polisa ubezpieczeniowa życiowa, dla uczniów i studentów.');
 
-insert into address_types (id_address_type, address_name) VALUES (1, 'Zamieszkania' ); 
-insert into address_types (id_address_type, address_name) VALUES (2, 'Zameldowania'); 
-insert into address_types (id_address_type, address_name) VALUES (3, 'Korespodencyjny'); 
-insert into address_types (id_address_type, address_name) VALUES (4, 'Inne'); 
+insert into dct_address_types (id_address_type, address_name) VALUES (1, 'Zamieszkania' ); 
+insert into dct_address_types (id_address_type, address_name) VALUES (2, 'Zameldowania'); 
+insert into dct_address_types (id_address_type, address_name) VALUES (3, 'Korespodencyjny'); 
+insert into dct_address_types (id_address_type, address_name) VALUES (4, 'Inne'); 
 
 insert into dct_riders (id_rider, rider_name, rider_description) values (1, 'Z-1', 'Uszkodzenie ciała w wyniku wypadku komunikacyjnego.');
 insert into dct_riders (id_rider, rider_name, rider_description) values (2, 'S-1', 'Śmierć ubezpieczonego.');
@@ -38,6 +38,6 @@ delete from addresses where id_address = 2 and status = 1;
 update contacts set mobile_phone_2 = '782-219-090' where id_contact = 1 and status = 1;
 delete from contacts where id_contact = 2 and status = 1;
 
-insert into policies(policy_no, id_insurer, id_insured, policy_value, premium_value, premium_frequency, sign_date, start_date) values ('P/07/04LIFE', 1, 1, 20000, 1500, 12, sysdate, sysdate + 1);
+insert into policies(policy_no, id_insurer, id_insured, policy_value, premium_value, premium_frequency, sign_date, start_date, end_date) values ('P/07/04LIFE', 1, 1, 20000, 1500, 12, sysdate, sysdate + 1, sysdate+365);
 
 insert into claims (claim_no, id_policy, id_rider, event_date, claim_status) values('R/01/07/04', 1, 1, sysdate, 'Paid');
