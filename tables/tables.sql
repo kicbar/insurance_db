@@ -119,7 +119,6 @@ create table POLICIES
 , constraint id_policy_type_fk foreign key (ID_POLICY_TYPE) references DCT_POLICY_TYPES(ID_POLICY_TYPE)
 );
 
-
 create table CLAIMS
 (
   ID_CLAIM integer default SEQ_CLAIM.nextval constraint id_claim_pk primary key not null
