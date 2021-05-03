@@ -10,3 +10,11 @@ begin
     :new.total_premium := f_calculate_total_premium(:new.premium_frequency, :new.premium_value);
 end;
 /
+
+create or replace trigger trg_claims before
+    insert or update on claims
+    for each row
+begin
+  pr_check_policy_date(:new.id_policy, :new.event_date); 
+end;
+/

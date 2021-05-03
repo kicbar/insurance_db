@@ -43,3 +43,4 @@ insert into policies(policy_no, id_insurer, id_insured, id_policy_type, policy_v
 insert into policies(policy_no, id_insurer, id_insured, id_policy_type, policy_value, premium_value, premium_frequency, sign_date, start_date) values ('P/07/04LIFE', 1, 1, 3, 20000, 1500, 2, sysdate, sysdate+1);
 
 insert into claims (claim_no, id_policy, id_rider, event_date, claim_status) values('R/01/07/04', 1, 1, sysdate, 'Paid');
+insert into claims (claim_no, id_policy, id_rider, event_date, claim_status) values('R/01/07/05', 20, 1, '2021/06/01', 'Paid');
