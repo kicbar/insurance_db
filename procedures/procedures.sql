@@ -1,4 +1,4 @@
-create or replace procedure pr_check_policy_date(v_id_policy IN INTEGER, v_claim_date date)
+CREATE OR REPLACE procedure pr_check_policy_date(v_id_policy IN INTEGER, v_claim_date date)
 IS 
     CURSOR c_policy_search 
     IS
@@ -25,3 +25,12 @@ BEGIN
 		END IF;
     CLOSE c_policy_search;
 END pr_check_policy_date; 
+/
+
+CREATE OR REPLACE PROCEDURE pr_insert_log(v_table_name IN VARCHAR2, v_operation IN VARCHAR2, v_old_value IN VARCHAR2, v_new_value IN VARCHAR2)
+IS 
+BEGIN 
+    INSERT INTO LOGS (table_name, operation, old_value, new_value) VALUES (v_table_name, v_operation, v_old_value, v_new_value);
+    DBMS_OUTPUT.PUT_LINE('Dodano log do tabeli: ' || v_table_name);
+END pr_insert_log; 
+/

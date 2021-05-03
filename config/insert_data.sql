@@ -44,3 +44,16 @@ insert into policies(policy_no, id_insurer, id_insured, id_policy_type, policy_v
 
 insert into claims (claim_no, id_policy, id_rider, event_date, claim_status) values('R/01/07/04', 1, 1, sysdate, 'Paid');
 insert into claims (claim_no, id_policy, id_rider, event_date, claim_status) values('R/01/07/05', 20, 1, '2021/06/01', 'Paid');
+
+--test logów
+insert into contacts(email, mobile_phone_1, mobile_phone_2, id_client) values('mako@wp.pl', '611-222-033', '', 1);
+update contacts set mobile_phone_2 = '778912344' where id_contact = 13;
+delete from contacts where id_contact = 13;
+
+insert into addresses(city, postal_code, street, home_number, id_client, id_address_type) values('Warszawa', '01-485', 'Marszałkowska', '3B', 1, 1);
+update addresses set apartment_number = '12' where id_address = 4;
+delete from addresses where id_address = 4;
+
+insert into clients(fname, lname, pesel) values('Julia', 'Wrońska', '53011369892');
+update clients set fname = 'Julita' where pesel = '53011369892';
+delete from clients where pesel = '53011369892';
